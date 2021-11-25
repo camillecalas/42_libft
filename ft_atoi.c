@@ -6,19 +6,11 @@
 /*   By: ccalas <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 11:04:14 by ccalas            #+#    #+#             */
-/*   Updated: 2021/11/24 11:18:35 by ccalas           ###   ########.fr       */
+/*   Updated: 2021/11/25 11:00:49 by ccalas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-int	ft_isdigit(int c)
-{
-	if (c >= '0' && c <= '9')
-		return (1);
-	else
-		return (0);
-}
 
 int	ft_atoi(const char *str)
 {

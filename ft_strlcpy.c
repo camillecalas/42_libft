@@ -6,24 +6,13 @@
 /*   By: ccalas <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 12:22:13 by ccalas            #+#    #+#             */
-/*   Updated: 2021/11/24 11:14:29 by ccalas           ###   ########.fr       */
+/*   Updated: 2021/11/25 12:20:22 by ccalas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
-{
-	int	i;
-
-	i = 0;
-	while (s[i] != '\0')
-		i++;
-	return (i);
-}
-
-unsigned int	ft_strlcpy(char *dest, const char *src, size_t size)
+size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 {
 	size_t	i;
 
@@ -35,11 +24,7 @@ unsigned int	ft_strlcpy(char *dest, const char *src, size_t size)
 			dest[i] = src[i];
 			i++;
 		}
-		while (i < size)
-		{
 			dest[i] = '\0';
-			i++;
-		}
 	}
 	return (ft_strlen(src));
 }
