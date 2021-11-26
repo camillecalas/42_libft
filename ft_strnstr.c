@@ -6,7 +6,7 @@
 /*   By: ccalas <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 16:47:30 by ccalas            #+#    #+#             */
-/*   Updated: 2021/11/25 15:17:03 by ccalas           ###   ########.fr       */
+/*   Updated: 2021/11/26 14:18:11 by ccalas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,26 @@
 
 char	*ft_strnstr(const char *str, const char *to_find, size_t size)
 {
-	size_t i;
-	size_t j;
+	size_t	i;
+	size_t	j;
 
 	i = 0;
+	j = 0;
 	if (to_find[0] == '\0' || size == 0)
 		return ((char *)str);
-	while (str[i] && i < size)
+	while (str[i] && (i + j) < size)
 	{
-		j = 0;
-		while (str[i + j] == to_find[j])
+		if (str[i + j] == to_find[j])
 		{
-			if (to_find[j] == '\0')
+			if (to_find[j + 1] == '\0')
 				return ((char *)&str[i]);
 			j++;
 		}
-		i++;
+		else
+		{
+			j = 0;
+			i++;
+		}
 	}
 	return (NULL);
 }

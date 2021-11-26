@@ -1,41 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ccalas <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/24 11:22:21 by ccalas            #+#    #+#             */
-/*   Updated: 2021/11/26 13:03:46 by ccalas           ###   ########.fr       */
+/*   Created: 2021/11/25 17:52:06 by ccalas            #+#    #+#             */
+/*   Updated: 2021/11/25 18:29:16 by ccalas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+void	ft_putnbr_fd(int n, int fd)
 {
-	char	*dest;
-	int		i;
-	int		j;
+	unsigned int	i;
 
-	i = 0;
-	j = 0;
-	if (s1 == NULL || s2 == NULL)
-		return (NULL);
-	dest = ft_calloc(sizeof(char), (ft_strlen(s1) + ft_strlen(s2) + 1));
-	if (!dest)
-		return (NULL);
-	while (s1[i] != '\0')
+	if (!n)
+		return ((void) NULL);
+	if (n < 0)
 	{
-		dest[i] = s1[i];
-		i++;
+		ft_putchar_fd('-', fd);
+		i = -n;
 	}
-	while (s2[j] != '\0')
+	else
+		i = n;
+	if (i > 9)
 	{
-		dest[i] = s2[j];
-		j++;
-		i++;
+		ft_putnbr_fd(i / 10, fd);
+		i = i % 10;
 	}
-	dest[i] = '\0';
-	return (dest);
+	ft_putchar_fd(i + 48, fd);
 }

@@ -1,41 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ccalas <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/24 11:22:21 by ccalas            #+#    #+#             */
-/*   Updated: 2021/11/26 13:03:46 by ccalas           ###   ########.fr       */
+/*   Created: 2021/11/25 16:11:05 by ccalas            #+#    #+#             */
+/*   Updated: 2021/11/25 17:21:20 by ccalas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+void	*ft_calloc(size_t element_count, size_t element_size)
 {
-	char	*dest;
-	int		i;
-	int		j;
-
+	void	*pointer;
+	size_t	i;
 	i = 0;
-	j = 0;
-	if (s1 == NULL || s2 == NULL)
+
+	pointer = (void *)malloc(element_count * element_size);
+	if (!pointer)
 		return (NULL);
-	dest = ft_calloc(sizeof(char), (ft_strlen(s1) + ft_strlen(s2) + 1));
-	if (!dest)
-		return (NULL);
-	while (s1[i] != '\0')
-	{
-		dest[i] = s1[i];
-		i++;
-	}
-	while (s2[j] != '\0')
-	{
-		dest[i] = s2[j];
-		j++;
-		i++;
-	}
-	dest[i] = '\0';
-	return (dest);
+		ft_bzero(pointer, (element_count * element_size));
+	return (pointer);
 }
