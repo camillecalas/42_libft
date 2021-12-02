@@ -6,7 +6,7 @@
 /*   By: ccalas <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 10:16:24 by ccalas            #+#    #+#             */
-/*   Updated: 2021/11/25 12:29:35 by ccalas           ###   ########.fr       */
+/*   Updated: 2021/11/29 14:01:21 by ccalas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ void	*ft_memset(void *sentence, int value, size_t count)
 	i = 0;
 	while (i < count)
 	{
-		 str[i] = value;
-		 i++;
-	 }
-	 return (str);
+		str[i] = value;
+		i++;
+	}
+	return (str);
 }

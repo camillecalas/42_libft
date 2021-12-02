@@ -6,7 +6,7 @@
 /*   By: ccalas <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 12:22:13 by ccalas            #+#    #+#             */
-/*   Updated: 2021/11/25 12:20:22 by ccalas           ###   ########.fr       */
+/*   Updated: 2021/11/29 14:06:21 by ccalas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 			dest[i] = src[i];
 			i++;
 		}
-			dest[i] = '\0';
+		dest[i] = '\0';
 	}
 	return (ft_strlen(src));
 }

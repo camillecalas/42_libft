@@ -6,16 +6,16 @@
 /*   By: ccalas <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 14:35:52 by ccalas            #+#    #+#             */
-/*   Updated: 2021/11/25 11:44:59 by ccalas           ###   ########.fr       */
+/*   Updated: 2021/12/01 13:37:29 by ccalas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
 char	*ft_strrchr(const char *string, int to_find_char)
 {
-	char *str;
-	char c;
-	int	len;
+	char	*str;
+	char	c;
+	int		len;
 
 	str = (char *)string;
 	c = (char)to_find_char;

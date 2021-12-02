@@ -1,39 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ccalas <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/24 16:47:30 by ccalas            #+#    #+#             */
-/*   Updated: 2021/11/29 18:06:34 by ccalas           ###   ########.fr       */
+/*   Created: 2021/11/26 16:51:12 by ccalas            #+#    #+#             */
+/*   Updated: 2021/12/01 12:04:05 by ccalas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *str, const char *to_find, size_t size)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	size_t	i;
-	size_t	j;
+	unsigned int	i;
+	char			*str;
 
 	i = 0;
-	j = 0;
-	if (to_find[0] == '\0')
-		return ((char *)str);
-	while (str[i] && (i + j) < size)
+	if (!s)
+		return (NULL);
+	str = ft_calloc(ft_strlen(s) + 1, sizeof(char));
+	if (!str)
+		return (NULL);
+	while (s[i])
 	{
-		if (str[i + j] == to_find[j] && (i + j) < size)
-		{
-			if (to_find[j + 1] == '\0')
-				return ((char *)&str[i]);
-			j++;
-		}
-		else
-		{
-			j = 0;
-			i++;
-		}
+		str[i] = f(i, s[i]);
+		i++;
 	}
-	return (NULL);
+	return (str);
 }

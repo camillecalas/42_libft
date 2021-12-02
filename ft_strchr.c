@@ -6,7 +6,7 @@
 /*   By: ccalas <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 13:25:55 by ccalas            #+#    #+#             */
-/*   Updated: 2021/11/25 11:38:01 by ccalas           ###   ########.fr       */
+/*   Updated: 2021/12/01 11:58:52 by ccalas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 char	*ft_strchr(const char *str, int to_find_char)
 {
 	while (*str && *str != (char)to_find_char)
-			str++;
-		if (*str == (char)to_find_char)
-			return ((char *)str);
+		str++;
+	if (*str == (char)to_find_char)
+		return ((char *)str);
 	return (NULL);
 }

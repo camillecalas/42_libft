@@ -6,7 +6,7 @@
 /*   By: ccalas <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 17:52:06 by ccalas            #+#    #+#             */
-/*   Updated: 2021/11/25 18:29:16 by ccalas           ###   ########.fr       */
+/*   Updated: 2021/12/01 13:29:43 by ccalas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,18 @@
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	unsigned int	i;
-
-	if (!n)
-		return ((void) NULL);
-	if (n < 0)
+	if (n == -2147483648)
+		ft_putstr_fd("-2147483648", fd);
+	else if (n < 0)
 	{
 		ft_putchar_fd('-', fd);
-		i = -n;
+		ft_putnbr_fd(-n, fd);
+	}
+	else if (n >= 10)
+	{
+		ft_putnbr_fd(n / 10, fd);
+		ft_putchar_fd(n % 10 + '0', fd);
 	}
 	else
-		i = n;
-	if (i > 9)
-	{
-		ft_putnbr_fd(i / 10, fd);
-		i = i % 10;
-	}
-	ft_putchar_fd(i + 48, fd);
+		ft_putchar_fd(n + '0', fd);
 }
